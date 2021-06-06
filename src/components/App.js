@@ -9,7 +9,7 @@ const App = () => {
   const [password, setpassword] = useState('');
   const [success, setsuccess] = useState(false);
   const [message, setmessage] = useState('');
-  const [error, seterror] = useState('')
+  const [error, seterror] = useState(null)
   useEffect(() => {
     setemail('');
     setgender('');
@@ -35,6 +35,9 @@ const App = () => {
         else if (!email.includes('@')) {
           seterror("Email must contain @")
         }
+        else if (gender === "") {
+          seterror("Please identify as male, female or others")
+        }
         else if (isNaN(phone)) {
           seterror("Phone Number must contain only numbers")
         }
@@ -42,6 +45,7 @@ const App = () => {
           seterror("Password must contain atleast 6 letters")
         } else {
           setsuccess(true);
+          seterror(null);
           let username = email.split("@");
           setmessage(`Hello ${username[0]}`);
         }

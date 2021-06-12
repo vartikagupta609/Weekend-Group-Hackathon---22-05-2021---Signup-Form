@@ -23,10 +23,10 @@ const App = () => {
       alert("All fields are mandatory");
     }
     else {
-      if (name === '') { seterror("Name Error") }
-      else if (email === '') { seterror("Email Error") }
-      else if (phone === '') { seterror("Phone Number Error") }
-      else if (password === '') { seterror("Password Error") }
+      if (name) { seterror("Name Error") }
+      else if (email) { seterror("Email Error") }
+      else if (phone) { seterror("Phone Number Error") }
+      else if (password) { seterror("Password Error") }
       else {
         let alphaExp = /^([a-z]+[\s]*[0-9]+[\s]*)+$/i;
         if (!alphaExp.test(name)) {
